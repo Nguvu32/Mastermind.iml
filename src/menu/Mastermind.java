@@ -85,6 +85,8 @@ public class Mastermind {
         }
         if (!ganado){
             System.out.println("Ya has agotado todos los intentos! :(");
+            System.out.println("La combinacion secreta es:");
+            combinacionSecreta.mostrar();
         } else {
             System.out.println("El juego ha terminado!!");
         }
