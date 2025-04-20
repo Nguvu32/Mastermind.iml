@@ -1,9 +1,4 @@
-package menu;
-
-import modelo.Combinacion;
-import modelo.Ficha;
-import modelo.Jugador;
-import modelo.Tablero;
+package modelo;
 
 import java.util.ArrayList;
 import java.util.Collections;

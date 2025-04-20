@@ -1,6 +1,7 @@
 package menu;
 
 import gestor.GestorIO;
+import modelo.Mastermind;
 
 public class OpcionJugar extends OpcionesMastermind {
     private Mastermind mastermind;

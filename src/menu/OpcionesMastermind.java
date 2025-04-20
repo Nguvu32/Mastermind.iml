@@ -1,5 +1,7 @@
 package menu;
 
+import modelo.Mastermind;
+
 public abstract class OpcionesMastermind extends Opcion {
     private String titulo;
     private Mastermind mastermind;

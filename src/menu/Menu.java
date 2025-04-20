@@ -1,6 +1,7 @@
 package menu;
 
 import gestor.GestorIO;
+import modelo.Mastermind;
 
 import java.util.ArrayList;
 import java.util.List;

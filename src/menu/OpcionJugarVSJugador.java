@@ -1,5 +1,7 @@
 package menu;
 
+import modelo.Mastermind;
+
 public class OpcionJugarVSJugador extends OpcionesMastermind {
     private Mastermind mastermind;
     private String titulo;
