@@ -37,12 +37,21 @@ public class Menu {
 
     public void interactuar() {
         System.out.println(titulo);
-        int elegirOpcion;
+        int elegirOpcion = opciones.size() + 1;
         do {
             addOpciones();
             mostrarOpciones();
-            elegirOpcion = elegirOpcion();
-            opciones.get(elegirOpcion).interactuar();
+            try {
+                elegirOpcion = elegirOpcion();
+                opciones.get(elegirOpcion).interactuar();
+            } catch (Exception e) {
+                do {
+                    System.out.println("Has elegido una opción que no es posible, vuelve a elegir las opciones");
+                    mostrarOpciones();
+                    elegirOpcion = elegirOpcion();
+                    opciones.get(elegirOpcion).interactuar();
+                }while (elegirOpcion < 1 && opciones.size() < elegirOpcion);
+            }
         }while(elegirOpcion == opciones.size());
     }
 

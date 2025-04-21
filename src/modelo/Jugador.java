@@ -30,9 +30,13 @@ public class Jugador {
             gestorIO.outln("Elige una de las siguientes opciones:");
             toOpciones(posiblesColores);
             int respuesta = gestorIO.inInt() - 1;
-            resultado.add(posiblesColores.get(respuesta));
-            posiblesColores.remove(respuesta);
-            contador++;
+            try {
+                resultado.add(posiblesColores.get(respuesta));
+                posiblesColores.remove(respuesta);
+                contador++;
+            }catch (Exception e){
+                System.out.println("Esa opcion no esta dentro de las posibles, mira bien las opciones que tienes y elige.");
+            }
         }while (contador < 4);
         return resultado;
     }
