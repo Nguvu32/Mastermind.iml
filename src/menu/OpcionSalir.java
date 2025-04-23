@@ -1,22 +1,18 @@
 package menu;
 
 public class OpcionSalir extends Opcion {
-    String titulo;
-    private boolean ejecutar;
 
     public OpcionSalir() {
-        titulo = "Salir";
-        ejecutar = false;
+        super("Salir");
     }
 
     @Override
     public void interactuar() {
-        ejecutar = true;
         System.out.println("Perfecto, nos vemos en la próxima!");
     }
 
     @Override
-    public String getString() {
+    public String getTitulo() {
         return titulo;
     }
 }

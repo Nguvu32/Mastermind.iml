@@ -15,26 +15,6 @@ public class Menu {
         this.opciones = new ArrayList<>();
     }
 
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
-    public List<Opcion> getOpciones() {
-        return opciones;
-    }
-
-    public void setOpciones(List<Opcion> opciones) {
-        this.opciones = opciones;
-    }
-
-    public void setOpcion(Opcion opcion){
-        opciones.add(opcion);
-    }
-
     public void interactuar() {
         System.out.println(titulo);
         int elegirOpcion = opciones.size() + 1;
@@ -55,23 +35,16 @@ public class Menu {
         }while(elegirOpcion == opciones.size());
     }
 
-    private void eliminarOpciones() {
-        opciones.clear();
-    }
-
-    public boolean opcionSalir(){
-        return true;
-    }
-
     private void addOpciones() {
-        opciones.add(new OpcionJugarVSJugador(new Mastermind(2)));
-        opciones.add(new OpcionJugarVSMaquina(new Mastermind(1)));
+        Mastermind mastermind = new Mastermind();
+        opciones.add(new OpcionJugarVSJugador(mastermind));
+        opciones.add(new OpcionJugarVSMaquina(mastermind));
         opciones.add(new OpcionSalir());
     }
 
     private void mostrarOpciones(){
         for (int i = 0; i < opciones.size(); i++) {
-            new GestorIO().outln((i + 1) + ". " + opciones.get(i).getString());
+            new GestorIO().outln((i + 1) + ". " + opciones.get(i).getTitulo());
         }
     }
 

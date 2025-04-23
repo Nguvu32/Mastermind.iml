@@ -2,21 +2,19 @@ package menu;
 
 import modelo.Mastermind;
 
-public class OpcionJugarVSMaquina extends OpcionesMastermind {
-    private Mastermind mastermind;
-    private String titulo;
+public class OpcionJugarVSMaquina extends OpcionMastermind {
 
     public OpcionJugarVSMaquina(Mastermind mastermind) {
-        this.mastermind = mastermind;
-        titulo = "Jugar contra la maquina";
-    }
-
-    public String getString() {
-        return titulo;
+        super("Jugar contra la maquina",mastermind);
     }
 
     @Override
     public void interactuar() {
-        mastermind.jugar();
+        mastermind.jugarVSmaquina();
+    }
+
+    @Override
+    public String getTitulo() {
+        return titulo;
     }
 }

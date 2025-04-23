@@ -12,19 +12,19 @@ public class Jugador {
         combinacion = new Combinacion();
     }
 
-    public void toOpciones(List<Ficha> lista){
+    public void toOpciones(List<Color> lista){
         for (int i = 0; i < lista.size(); i++) {
             System.out.println((i+1) + ".[" + lista.get(i) + "]");
         }
     }
 
-    public List<Ficha> juega() {
-        List<Ficha> posiblesColores = new ArrayList<>();
+    public List<Color> juega() {
+        List<Color> posiblesColores = new ArrayList<>();
         int contador = 0;
-        for (int i = 0; i < 6; i++) {
-            posiblesColores.add(Ficha.values()[i]);
+        for (int i = 0; i < modelo.Color.values().length; i++) {
+            posiblesColores.add(modelo.Color.values()[i]);
         }
-        List<Ficha> resultado = new ArrayList<>();
+        List<Color> resultado = new ArrayList<>();
         GestorIO gestorIO = new GestorIO();
         do {
             gestorIO.outln("Elige una de las siguientes opciones:");
@@ -41,7 +41,7 @@ public class Jugador {
         return resultado;
     }
 
-    public List<Ficha> eligeCominacionSecreta() {
+    public List<Color> eligeCominacionSecreta() {
         return juega();
     }
 

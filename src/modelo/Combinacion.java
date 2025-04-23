@@ -3,42 +3,42 @@ package modelo;
 import java.util.*;
 
 public class Combinacion {
-    private List<Ficha> fichas;
+    private List<Color> colors;
 
     public Combinacion() {
         Random aleatorio = new Random();
         int numeroAleatorio1 = aleatorio.nextInt(5);
         int numeroAleatorio2 = aleatorio.nextInt(4);
-        fichas = new ArrayList<>();
+        colors = new ArrayList<>();
         for (int i = 0; i < 6; i++) {
-            fichas.add(Ficha.values()[i]);
+            colors.add(modelo.Color.values()[i]);
         }
-        fichas.remove(numeroAleatorio1);
-        fichas.remove(numeroAleatorio2);
+        colors.remove(numeroAleatorio1);
+        colors.remove(numeroAleatorio2);
     }
 
-    public Combinacion(List<Ficha> fichas) {
-        this.fichas = fichas;
+    public Combinacion(List<Color> colors) {
+        this.colors = colors;
     }
 
-    public List<Ficha> getCombinacion() {
-        return fichas;
+    public List<Color> getCombinacion() {
+        return colors;
     }
 
-    public void setCombinacion(List<Ficha> combinacion) {
-        this.fichas = combinacion;
+    public void setCombinacion(List<Color> combinacion) {
+        this.colors = combinacion;
     }
 
     public void aleatoria() {
-        Collections.shuffle(fichas);
+        Collections.shuffle(colors);
     }
 
     public void mostrar() {
-        for (int i = 0; i < fichas.size(); i++) {
-            if (i == fichas.size() - 1){
-                System.out.println("[" + fichas.get(i) + "]");
+        for (int i = 0; i < colors.size(); i++) {
+            if (i == colors.size() - 1){
+                System.out.println("[" + colors.get(i) + "]");
             }else {
-                System.out.print("[" + fichas.get(i) + "], ");
+                System.out.print("[" + colors.get(i) + "], ");
             }
 
         }

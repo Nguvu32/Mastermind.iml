@@ -7,48 +7,20 @@ public class Tablero {
     private Combinacion[] combinacionesPropuestas;
     private Combinacion combinacionSecreta;
     private int intento;
-    private final int FILAS_COMBINACIONES_MAX = 10;
 
     public Tablero(Combinacion combinacionSecreta){
         combinacionesPropuestas = new Combinacion[10];
-        List<Ficha> combinacionVacia = new ArrayList<>();
-        for (int i = 0; i < 4; i++) {
-            combinacionVacia.add(Ficha.NADA);
-        }
-        for (int i = 0; i < FILAS_COMBINACIONES_MAX; i++) {
-            combinacionesPropuestas[i] = new Combinacion(combinacionVacia);
-        }
         this.combinacionSecreta = combinacionSecreta;
         intento = 0;
     }
 
-    public Combinacion[] getCombinacionesPropuestas() {
-        return combinacionesPropuestas;
-    }
-
-    public void setCombinacionPropuesta(List<Ficha> combinacionPropuesta) {
+    public void setCombinacionPropuesta(List<Color> combinacionPropuesta) {
         combinacionesPropuestas[intento].setCombinacion(combinacionPropuesta);
         intento++;
     }
 
-    public Combinacion getCombinacionSecreta() {
-        return combinacionSecreta;
-    }
-
-    public void setCombinacionSecreta(Combinacion combinacionSecreta) {
-        this.combinacionSecreta = combinacionSecreta;
-    }
-
     public int getIntento() {
         return intento;
-    }
-
-    public void setIntento(int intento) {
-        this.intento = intento;
-    }
-
-    public int getFILAS_COMBINACIONES_MAX() {
-        return FILAS_COMBINACIONES_MAX;
     }
 
     public boolean blanco(int posicion){
@@ -79,16 +51,16 @@ public class Tablero {
         return combinacionesPropuestas[intento - 1].getCombinacion().size() == contador;
     }
 
-    public List<Ficha> compararConSecreta() {
-        List<Ficha> resultado = new ArrayList<>();
+    public List<String> compararConSecreta() {
+        List<String> resultado = new ArrayList<>();
         for (int i = 0; i < combinacionesPropuestas[intento - 1].getCombinacion().size(); i++) {
             if (negro(i)){
-                resultado.add(Ficha.NEGRO);
+                resultado.add("NEGRO");
             } else {
                 if (blanco(i)){
-                    resultado.add(Ficha.BLANCO);
+                    resultado.add("BLANCO");
                 } else {
-                    resultado.add(Ficha.NADA);
+                    resultado.add("NADA");
                 }
             }
         }
@@ -104,7 +76,7 @@ public class Tablero {
             System.out.print("Intento número " + (i + 1) + "--> ");
             combinacionesPropuestas[i].mostrar();
         }
-        System.out.println("Combinación Secreta -->[" + Ficha.SECRETO + "], [" + Ficha.SECRETO + "], [" + Ficha.SECRETO + "], [" + Ficha.SECRETO + "]");
+        System.out.println("Combinación Secreta -->[SERETO], [SERETO], [SERETO], [SERETO]");
     }
 
     public Combinacion getCombinacionPropuesta() {

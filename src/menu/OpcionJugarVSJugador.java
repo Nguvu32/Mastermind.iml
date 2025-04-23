@@ -2,21 +2,19 @@ package menu;
 
 import modelo.Mastermind;
 
-public class OpcionJugarVSJugador extends OpcionesMastermind {
-    private Mastermind mastermind;
-    private String titulo;
+public class OpcionJugarVSJugador extends OpcionMastermind {
 
     public OpcionJugarVSJugador(Mastermind mastermind) {
-        this.mastermind = mastermind;
-        titulo = "Jugar contra otro jugador";
-    }
-
-    public String getString() {
-        return titulo;
+        super("Jugar contra un jugador", mastermind);
     }
 
     @Override
     public void interactuar() {
-        mastermind.jugar();
+        mastermind.jugarVSjugador();
+    }
+
+    @Override
+    public String getTitulo() {
+        return titulo;
     }
 }
